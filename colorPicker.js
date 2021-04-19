@@ -5,10 +5,9 @@ const hexArray = ['#34568B', '#FF6F61','#6B5B95', '#88B04B', '#F7CAC9', '#92A8D1
 const button = document.querySelector('button')
 const toggle = document.querySelectorAll('.toggle')
 
-// Event listener for the Button
-button.addEventListener('click', () => {
-    // Checks if the added class equals hexRand
-    if (button.classList[0] == 'hexRand' ) {
+ // Event listener for the Button
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('hexRand')) {
         //Creates a random hex code and converts it to a string
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
         //Selects all the elements with .bg class and loops
@@ -18,8 +17,7 @@ button.addEventListener('click', () => {
             // Updates the h1's text with the color code 
             document.querySelector('h1').innerHTML = `#${randomColor}`
         });
-    // Checks if the added class equals hexList
-    } else if (button.classList[0] == 'hexList') {
+    } else if (event.target.classList.contains('hexList')) {
         // Picks a random item from the array
         let hexCode = Math.floor(Math.random() * hexArray.length)
         // Selects all the elements with .bg class
